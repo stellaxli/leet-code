@@ -1,32 +1,27 @@
 # 875. Koko Eating Bananas -- WIP
 import math
 
-# piles = [3,6,7,11], h = 8
+piles = [312884470]
+h = 312884469
 class Solution:
     
     def minEatingSpeed(piles, h) -> int:
+        #binary search
         maxNum = max(piles)
         minNum = 1
-        k = 0
-        print(maxNum)
-        print((maxNum + 1) // 2)
-        while (minNum <= maxNum):
-            print('max = ', maxNum)
-            print('min = ', minNum)
-            middle = (maxNum + 1) // 2
+
+        while (minNum < maxNum):
+            middleNum = (minNum + maxNum) // 2
             count = 0
             for i in piles:
-                print(count)
-                count += math.ceil(i/middle)
-
+                count += math.ceil(i / middleNum)
             if (count <= h):
-                k = middle
-                maxNum = middle - 1
+                maxNum = middleNum
             else:
-                minNum = middle + 1
-        
-        return k
+                minNum = middleNum + 1
+        return minNum
 
-print(Solution.minEatingSpeed([3,6,7,11],8))
             
         
+
+print (Solution.minEatingSpeed(piles, h))
